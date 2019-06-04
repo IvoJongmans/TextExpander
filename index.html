@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    <title>TE</title>
+    <script>
+        $( document ).ready(function() {
+        
+        var text = "";
+        var words = [];
+        var textreturn = "";
+
+            $(".text_expander").keyup(function() {
+
+                text = $(".text_expander").val();  
+
+                words = text.split(" ");    
+                
+                console.log(words);
+
+                for(let i = 0; i < words.length; i++) {
+                    //You can place all your TextExpanders here
+                    if (words[i].substr(0,3) == '#cg'){
+                        words[i] = "CodeGorilla";
+                        textreturn = words.join(" ");
+                        console.log(textreturn);
+                        $(".text_expander").val(textreturn);
+                    }
+                    if (words[i].substr(0,4) == '#ivo'){
+                        words[i] = "Ivo Jongmans";
+                        textreturn = words.join(" ");
+                        console.log(textreturn);
+                        $(".text_expander").val(textreturn);
+                    }
+                }
+            });
+            
+        });    
+    </script>
+</head>
+<body>
+    <div>
+        <textarea class="text_expander"></textarea>
+    </div>
+</body>
+</html>
